@@ -3,6 +3,22 @@
    <h2>Mini navbar header here, including tabs for interesting, featured, hot, week, month</h2>
    <div class="questions">
      <h4>Question previews here...shows votes, answers, views on left, preview of question center, who asked it, when, and any tags right</h4>
+     <% if @questions.any? %>
+       <% @questions.each do |question| %>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h5><%= question.preview %>...</h5>
+            <h6>Answers: <%= question.answers.length %></h6>
+          </div>
+        </div>
+        <% end %>
+      <% else %>
+        <div class="panel">
+          <div class="panel-body">
+            <h5>There are no questions yet</h5>
+          </div>
+        </div>
+      <% end %>
    </div>
  </div>
  <div class="right col-xs-3">
