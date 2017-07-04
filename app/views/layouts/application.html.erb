@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>StackClone</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h3>Header and nav, subtle, includes search bar and user icons if signed in
+    <% if current_user %>
+
+    <%= image_tag('download.jpeg') %><%= current_user.username %><%= link_to 'Profile', user_path(current_user.id) %> <%=  button_to('Logout', destroy_user_session_path, :method => :delete) %>
+    <% else %>
+    <%= link_to 'Sign In', new_user_session_path %>
+    <% end  %>
+    <%= link_to 'Home', '/' %>
+    </h3>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>
