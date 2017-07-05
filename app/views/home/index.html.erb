@@ -5,12 +5,14 @@
      <h4>Question previews here...shows votes, answers, views on left, preview of question center, who asked it, when, and any tags right</h4>
      <% if @questions.any? %>
        <% @questions.each do |question| %>
+       <%= link_to question_path(question.id) do %>
         <div class="panel panel-default">
           <div class="panel-body">
             <h5><%= question.preview %>...</h5>
             <h6>Answers: <%= question.answers.length %></h6>
           </div>
         </div>
+        <% end %>
         <% end %>
       <% else %>
         <div class="panel">

@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h2><%= @question.content %></h2>
+  </div>
+  <div class="panel-footer">
+    <h5>Asked by: <%= @question.user.username %></h5>
+    <h6><%= @question.created_at %></h6>
+  </div>
+</div>
+<div class="">
+  <h3>Answers (<%= @question.answers.length %>)</h3>
+  <% if @question.answers.any? %>
+    <% @question.answers.each do |answer| %>
+     <div class="panel panel-default">
+       <div class="panel-body">
+         <h5><%= answer.content %></h5>
+         <h6>By: <%= answer.user.username %></h6>
+       </div>
+     </div>
+     <% end %>
+   <% else %>
+     <div class="panel">
+       <div class="panel-body">
+         <h5>There are no answers yet.</h5>
+       </div>
+     </div>
+   <% end %>
+</div>

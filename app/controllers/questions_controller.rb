@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class QuestionsController < ApplicationController
   skip_before_action :authenticate_user!, :only => [:show]
 
   def index
@@ -7,5 +7,5 @@ class UsersController < ApplicationController
   def show
     @question = Question.find(params[:id])
   end
-  
+
 end
